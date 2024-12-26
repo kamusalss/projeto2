@@ -1,0 +1,2 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","13667","should login with valid credentials","","Thu Dec 26 07:03:25 BRT 2024","passed","Thu Dec 26 07:03:39 BRT 2024","","My Login application","",""
