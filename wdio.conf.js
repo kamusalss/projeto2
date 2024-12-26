@@ -1,21 +1,44 @@
 const { default: AllureReporter } = require("@wdio/allure-reporter");
 
 exports.config = {
-    runner: 'local',
-    port: 4723,
+    //runner: 'local',
+    //port: 4723,
+
+    user: 'oauth-kamusalss-9087f',
+     key: '9b0e007f-1db9-4b9f-aaa9-05b4ad953fca',
+     hostname: 'ondemand.us-west-1.saucelabs.com',
+     port: 443,
+     baseUrl: 'wd/hub',
     specs: [
         './test/specs/**/*.js'
     ],
     maxInstances: 1,
-    capabilities: [{
+    capabilities: [
+    //    platformName: 'Android',
+    //    'appium:deviceName': 'ebac-qe',
+    //    'appium:platformVersion': '9.0',
+    //    'appium:automationName': 'UiAutomator2',
+    //    'appium:app': `${process.cwd()}/app/ebacshop.apks`,
+    //    'appium:appWaitActivity': '.MainActivity',
+    //    'appium:disableIdLocatorAutocompletion': true
+    //}
+
+    {
         platformName: 'Android',
-        'appium:deviceName': 'ebac-qe',
-        'appium:platformVersion': '9.0',
+        'appium:app': 'storage:filename=ebacshop (1).aab', // The filename of the mobile app
+        'appium:deviceName': 'Samsung.*',
+        'appium:platformVersion': '10',
         'appium:automationName': 'UiAutomator2',
-        'appium:app': `${process.cwd()}/app/ebacshop.apks`,
-        'appium:appWaitActivity': '.MainActivity',
-        'appium:disableIdLocatorAutocompletion': true
-    }],
+        'appium:disableIdLocatorAutocompletion': true,
+        'sauce:options': {
+           build: 'appium-build-teste-ebacshop',
+           name: 'Ebac Shop Teste',
+           deviceOrientation: 'PORTRAIT',
+          appiumVersion: '2.0.0'
+         },
+    }
+
+],
     logLevel: 'info',
     waitforTimeout: 10000,
     connectionRetryTimeout: 120000,
